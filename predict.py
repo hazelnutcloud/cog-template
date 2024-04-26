@@ -10,7 +10,7 @@ class Predictor(BasePredictor):
     def setup(self) -> None:
         """Load the model into memory to make running multiple predictions efficient"""
         self.llm = Llama(
-            "./solar-10.7b-instruct-v1.0-uncensored.Q8_0.gguf",
+            "./lama3-8b-hikikomori-v0.3-GGUF-unsloth.Q5_K_M.gguf",
             n_gpu_layers=-1,
             n_ctx=4096,
             seed=-1,
@@ -20,15 +20,15 @@ class Predictor(BasePredictor):
         self,
         prompt: str = Input(
             description="The prompt to generate text from.",
-            default="""<s> ### User:
-What's the largest planet in the solar system?
+            default="""<|begin_of_text|><|start_header_id|>user<|end_header_id|>
 
-### Assistant:
+What's the largest planet in the solar system?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
 """,
         ),
         max_tokens: int = Input(
             description="The maximum number of tokens to generate. If max_tokens <= 0 or None, the maximum number of tokens to generate is unlimited and depends on n_ctx.",
-            default=16,
+            default=64,
         ),
         temperature: float = Input(
             description="The temperature to use for sampling.", default=0.8

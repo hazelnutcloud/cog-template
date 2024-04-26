@@ -28,5 +28,5 @@ build:
   #   - "echo another command if needed"
 
 # predict.py defines how predictions are run on your model
-image: "r8.im/hikikomori-haven/solar-uncensored"
+image: "r8.im/hikikomori-haven/llama3-8b-hikikomori-v0.3"
 predict: "predict.py:Predictor"
