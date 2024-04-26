@@ -16,3 +16,5 @@ __pycache__
 # Exclude Python virtual environment
 /venv
 .venv
+*.gguf
+!lama3-8b-hikikomori-v0.3-GGUF-unsloth.Q5_K_M.gguf
